@@ -1,0 +1,64 @@
+
+.example-card {
+  width: 100% !important;
+  margin-bottom: 20px;
+   border-radius: 10px;
+   color:#0c0c0c;
+}
+
+.example-header-image {
+  margin-right: 10px;
+  background-size: cover;
+  color: #171718;
+  
+}
+.carousel-inner .carousel-item {
+  max-height: 400px;
+}
+.example-header-image::before {
+  margin-right: 10px;
+  background-image: inherit !important;
+  background-size: cover;
+  color:#3a8d2b;
+  
+}
+.box{
+  max-width: 75%;
+  background-color: #FFFFFF;
+  margin: 30px auto;
+  border-radius: 10px;
+  border-color: #F0EBE3;
+  border-width: 2px;
+ 
+ 
+}
+.header {
+  display: flex;
+  align-items: center;
+  
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  color:#111213 !important;
+  }
+
+.left-section {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; 
+}
+.mat-card-actions {
+  margin-left: auto; /* Ensures the button is pushed to the right */
+}
+.box-padding {
+  padding: 16px 16px;
+}
+.scrollable-container {
+  max-height: calc(170vh); /* Adjust the height as needed */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+.scrollable-container::-webkit-scrollbar {
+  display: none;
+}

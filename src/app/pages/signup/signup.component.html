@@ -1,0 +1,35 @@
+<div class="background-container">
+  <div class="wrapper" [class.active]="toggleActive">
+    <div class="form signup">
+      <!-- {{registerUser | json}} -->
+      <header (click)="toggleForm()">Signup</header>
+      <form (ngSubmit)="userRegister()">
+        <input type="text" placeholder="Full name" required [(ngModel)]="registerUser.fullName" name="fullName" />
+        
+        <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" [(ngModel)]="registerUser.company.companyId" name="companyId">
+          <option [ngValue]="null" disabled selected>Choose Company</option>
+          <option *ngFor="let company of companies" [value]="company.companyId">{{company.name}}</option>
+        </select>
+        
+        <input type="text" placeholder="Email address" required [(ngModel)]="registerUser.email" name="email" />
+        <input type="text" placeholder="Username" required [(ngModel)]="registerUser.username" name="username" />
+        <input type="password" placeholder="Password" required [(ngModel)]="registerUser.password" name="password" />
+        <div class="checkbox">
+          <input type="checkbox" id="signupCheck" required [(ngModel)]="registerUser.admin" name="admin" />
+          <label for="signupCheck">Admin User</label>
+        </div>
+        <button type="submit" class="btn btn-light">Signup</button>
+      </form>
+    </div>
+
+    <div class="form login">
+      <header (click)="toggleForm()">Login</header>
+      <form (ngSubmit)="userLogin()">
+        <input type="text" placeholder="Email address" required [(ngModel)]="loginUser.username" name="email" />
+        <input type="password" placeholder="Password" required [(ngModel)]="loginUser.password" name="password" />
+        <a href="#">Forgot password?</a>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

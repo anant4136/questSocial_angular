@@ -1,0 +1,65 @@
+<div class="scrollable-container">
+  <mat-card class="box" style="min-height: 85vh;">
+    <mat-card-header>
+      <mat-card-title style="font-size: 25px;">{{problem.title}}</mat-card-title>
+      <mat-card-subtitle style="color: grey; font-size: 12px;">Added 0 years, 1 month ago &nbsp;&nbsp;&nbsp;&nbsp; Modified 20 days ago</mat-card-subtitle>    
+    </mat-card-header>
+    
+    <mat-divider style="margin-top: 10px;margin-bottom: 10px;"></mat-divider>
+    
+    <mat-card-content>
+      <p>{{problem.description}}</p>
+      <div id="carouselExampleIndicators" class="carousel slide boximgcontainer" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators" style="z-index: 5 !important;">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img [src]="problem.imageUrl1" class="d-block w-100 carousel-image" alt="{{ problem.title }}">
+          </div>
+          <div class="carousel-item">
+            <img [src]="problem.imageUrl2" class="d-block w-100 carousel-image" alt="{{ problem.title }}">
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    
+    <mat-divider style="margin-top: 10px;"></mat-divider>
+    
+    <h2 style="margin: 5px 0px 0px 15px;">{{length}} Answers</h2>
+
+    <ng-container *ngIf="solutions.length === 0">
+      <mat-card-content style="text-align: center;">
+        <img src="../../../../assets/images/box_15052602.png" height="80" width="80" alt="No answers available" style="margin:  30px auto;">
+        <p style="text-align: center; margin-top: 10px;">No answers available yet. Be the first to provide an answer!</p>
+      </mat-card-content>
+    </ng-container>
+    
+    <ng-container *ngIf="solutions.length > 0">
+      <ng-container *ngFor="let ans of solutions; let i = index">
+        <mat-card-content>
+          <mat-card class="example-card box">
+            <mat-card-header class="user-header box-padding">
+              <div class="left-section">
+                <div mat-card-avatar class="example-header-image"></div>
+                <div>
+                  <mat-card-title>{{ ans.solver.username }}</mat-card-title>
+                  <mat-card-subtitle>{{ ans.solver.fullName }}</mat-card-subtitle>
+                </div>
+              </div>
+              <!-- <mat-card-actions>
+                <button type="button" *ngIf="user.id === ans.question.creator.id" class="btn btn-outline-success" style="font-size: 20px;" (click)="increaseScore(ans)">Accept</button>
+              </mat-card-actions> -->
+            </mat-card-header>
+            
+            <mat-card-content style="margin-bottom: 10px;">
+              <h2 style="margin:0;">{{ans.title}}</h2>
+              <p>{{ans.description}}</p>
+            </mat-card-content>
+          </mat-card>
+        </mat-card-content>
+      </ng-container>
+    </ng-container>
+  </mat-card>
+</div>

@@ -1,0 +1,125 @@
+
+ .profile-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    font-family: Arial, sans-serif;
+    margin:30px auto;
+    
+  }
+   
+  .profile-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    /* border-bottom: 1px solid #eee; */
+  }
+   
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+   
+  .profile-info {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+   
+  .profile-info h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+   
+  .profile-info p {
+    margin: 0;
+    color: #888;
+  }
+   
+  .profile-details {
+    padding: 15px;
+  }
+   
+  .profile-details h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+  }
+   
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+   
+  textarea {
+    resize: none;
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  input{
+    
+        resize: none;
+        height: 30px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      
+  }
+   
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+   
+  .btn {
+    background: #004d40;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+   
+  .btn .fas {
+    margin-right: 5px;
+  }
+   
+  .submit-btn {
+    background: #004d40;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+   
+  .activity {
+    padding: 15px;
+    border-top: 1px solid #eee;
+  }
+   
+  .activity h4 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #333;
+  }
+   
+  .activity p {
+    margin: 0;
+    color: #888;
+    font-size: 12px;
+  }
+ 

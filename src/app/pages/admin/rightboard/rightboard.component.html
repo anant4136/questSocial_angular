@@ -1,0 +1,66 @@
+
+ <div class="profile-card">
+    <div class="profile-header">
+      <img src="https://cdn2.iconfinder.com/data/icons/personicon-1/300/personicon07-512.png" alt="Avatar" class="avatar">
+      <div class="profile-info">
+        <h2>{{'@'+user.username}}</h2>
+        <p>UserName</p>
+      </div>
+    </div>
+    <div class="profile-details" >
+        <div class="profile-header"style="padding-top: 0;">
+            <div class="profile-info">
+                <h2>{{user.company.no_of_employees}}</h2>
+                <p>Friends</p>
+              </div>
+              <div class="profile-info">
+                <h2>{{user.score}}</h2>
+                <p>Credits</p>
+              </div>
+              <div class="profile-info">
+                <h2>{{user.company.name}}</h2>
+                <p>Company</p>
+              </div>
+        </div>
+       
+      <h3>What do you think, Kemito?</h3>
+      <form (ngSubmit)="createProblem()">
+        <input type="text" [(ngModel)]="title" name ="title" placeholder="Add Title ...">
+        <textarea [(ngModel)]="description" name="thought" placeholder="Share your thoughts..."></textarea>
+        <input type="text" [(ngModel)]="imageUrl1" name ="imageUrl1" placeholder="Add Image1 ...">
+        <input type="text" [(ngModel)]="imageUrl2" name ="imageUrl2" placeholder="Add Image2 ...">
+        <div class="actions">
+          <button class="btn" type="button"><i class="fas fa-image"></i> Image 1</button>
+          <button class="btn" type="button"><i class="fas fa-video"></i> Image 2</button>
+        </div>
+        <button class="submit-btn" type="submit" >Post</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="profile-card">
+    <div class="profile-header" style="padding-bottom: 0;">
+        <h2>Other Companies</h2>
+    </div>
+    <div class="profile-details">
+        <div *ngFor="let company of companies" class="company-item">
+            <div class="profile-header">
+                <img src="../../../../assets/images/search_281747.png" [alt]="company.name" class="avatar">
+                <div class="profile-info"> 
+                    <h2>{{ company.name }}</h2>
+                    <h3>{{ company.location }}</h3>
+                </div>
+               
+            </div>
+            
+            <div class="profile-info">
+               
+                <p>{{ company.description }}</p>
+            </div>
+            <hr class="separator">
+        </div>
+    </div>
+</div>
+
+

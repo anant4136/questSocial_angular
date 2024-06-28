@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-8" style=" padding:20px 0 0 50px;">
+    <h1 style="color: white;">All Users</h1>
+      <ng-container *ngFor="let u of all_users; let i = index">
+      
+        <mat-card class="example-card box">
+          <mat-card-header class="user-header box-padding">
+            <div class="card-content">
+              <div class="left-section">
+                  <div mat-card-avatar style="margin-right: 10px;" class="example-header-image" ></div>
+                  <div>
+                      <mat-card-title>{{ u.username }}</mat-card-title>
+                      <mat-card-subtitle >{{ u.firstName }} {{ u.lastName }}</mat-card-subtitle>
+                      <mat-card-subtitle >Score : {{ u.score }}</mat-card-subtitle>
+                      <mat-card-subtitle style="color: #16584a">User Name : {{ '@' + u.username }}</mat-card-subtitle>
+                  </div>
+              </div>
+              <div class="right-section">
+                <mat-card-subtitle >Contact : {{ u.phone }}</mat-card-subtitle>
+                <mat-card-subtitle style="color: #16584a">Email : {{ u.email }}</mat-card-subtitle>
+                <mat-card-subtitle >Company : {{ u.company.name }}</mat-card-subtitle>
+              </div>
+          </div>
+            
+          </mat-card-header>
+        </mat-card>
+
+      </ng-container>
+
+  </div>
+  <div class="col-md-4">
+    <div class="profile-card">
+      <div class="profile-header" style="padding-bottom: 0;">
+          <h2>Company</h2>     
+      </div>
+      <div class="profile-details">
+          <div *ngFor="let company of companies" class="company-item" (click)="companyUsers(company.companyId)">
+              <div class="profile-header" >
+               
+                <div class="profile-info" style="display: flex;"> 
+                  <img [src]="company.companyImageUrl" [alt]="company.name" class="avatar">
+                  
+                  <h2>{{ company.name }}</h2>
+                </div>
+                      <h3 style="font-weight: bold;font-size: 18px; color:#16584a">Location : {{ company.location }}</h3>
+                 
+                 
+              </div>
+              
+            
+              <hr class="separator">
+          </div>
+      </div>
+  </div>
+  
+  
+  
+  </div>
+</div>
+    

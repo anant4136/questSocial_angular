@@ -1,0 +1,21 @@
+
+<nav class="nav" [class.nav-reduced]="isNavbarReduced" id="navbar">
+  <div class="nav-logo">
+    <a routerLink="/home" style="text-decoration: none;">
+      <p>QuestSocial</p>
+    </a>
+  </div>
+  <div class="nav-menu"  id="navMenu">
+    <ul>
+      <li><a routerLink="/home" [ngClass]="{'active': activeLink === 'home'}" (click)="setActiveLink('home')" class="link">Home</a></li>
+      <li><a routerLink="/home/profile" class="link" [ngClass]="{'active': activeLink === 'profile'}" (click)="setActiveLink('profile')">Profile</a></li>
+    </ul>
+  </div>
+  <div class="nav-button">
+    <button class="btn" (click)="logOut()" style="color: white;">Logout</button>
+   
+  </div>
+  <div class="nav-menu-btn">
+    <i class="bx bx-menu"></i>
+  </div>
+</nav>

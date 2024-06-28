@@ -1,0 +1,51 @@
+<mat-card class="box" style="min-height: 85vh;">
+  <mat-card-header>
+    <mat-card-title style="font-size: 25px;">{{ problem.title }}</mat-card-title>
+    <mat-card-subtitle style="color: grey; font-size: 12px;">Added 0 years, 1 month ago &nbsp;&nbsp;&nbsp;&nbsp; Modified 20 days ago </mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider style="margin-top: 10px; margin-bottom: 10px;"></mat-divider>
+  <mat-card-content>
+    <p>{{ problem.description }}</p>
+    <div id="carouselExampleIndicators" class="carousel slide boximgcontainer" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-indicators" style="z-index: 5 !important;">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img [src]="problem.imageUrl1" class="d-block w-100 carousel-image" alt="{{ problem.title }}">
+        </div>
+        <div class="carousel-item">
+          <img [src]="problem.imageUrl2" class="d-block w-100 carousel-image" alt="{{ problem.title }}">
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions class="flexing-icons">
+    <div style="width: 20%; display: flex;">
+      <button class="btn btn-outline-secondary like-button " style="color:rgb(5, 127, 5)" (click)="likePost()" [disabled]="liked || disliked">
+        <mat-icon>thumb_up</mat-icon>
+        <span>{{ problem.likes }}</span>
+      </button>
+      <button class="btn btn-outline-secondary dislike-button" (click)="dislikePost()" [disabled]="liked || disliked">
+        <mat-icon>thumb_down</mat-icon>
+        <span>{{ problem.dislikes }}</span>
+      </button>
+    </div>
+    <div>
+      <button class="btn btn-outline-secondary" style="margin-right: 10px" type="button" id="button-addon2" [routerLink]="'/home/ans/' + problem.problemId">Comments</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="toggleCommentBox()">Share</button>
+    </div>
+  </mat-card-actions>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <div class="input-box-1" style="margin-top: 10px;" [ngClass]="{ 'input-box-1': true, 'show': showCommentBoxes }">
+      <input type="text" class="form-control" placeholder="Title" [(ngModel)]="title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" style="margin-bottom: 10px;">
+      <textarea class="form-control" placeholder="Description" [(ngModel)]="description" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" style="margin-bottom: 10px;"></textarea>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="createSolution(problem.problemId)">Share</button>
+    </div>
+  </mat-card-content>
+</mat-card>

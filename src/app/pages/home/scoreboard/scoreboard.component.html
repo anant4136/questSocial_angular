@@ -1,0 +1,49 @@
+<ng-container >
+<div class="card box" style="width: 18rem;">
+  <h2 style="margin: 10px auto; font-size: 20px;">Leader Board</h2>
+  
+    <ul class="list-group">
+      <li *ngFor="let u of users ; let i = index"
+          class="list-group-item d-flex justify-content-between align-items-center"
+          [ngClass]="{'bg-gold': i === 0, 'bg-silver': i === 1, 'bg-bronze': i === 2}">
+        <div class="d-flex align-items-center">
+          <img *ngIf="i==0" src="../../../../assets/images/medal.gif" alt="" width="50" height="50" >
+          <img *ngIf="i==1" src="../../../../assets/images/medal (1).gif" alt="" width="50" height="50" >
+          <img *ngIf="i!==1 && i!==0" src="../../../../assets/images/validation.gif" alt="" width="50" height="50" >
+          
+          <div class="ms-2 me-auto">
+        
+            <div class="fw-bold">{{'@'+u.username}} </div>
+            {{u.fullName}}
+          </div>
+        </div>
+        <span class="badge-primary  rounded-pill" style="color: black;font-weight: bold;">{{ u.score }}</span>
+      
+      </li>
+    </ul>
+  </div>
+</ng-container>
+
+<ng-container >
+  <div class="card box" style="width: 18rem;">
+    <h2 style="margin: 10px auto;  font-size: 20px;">Friends</h2>
+      <ul class="list-group">
+        <ng-container *ngFor="let u of all_users; let i = index">
+        <li *ngIf="user.id!=u.id"
+            class="list-group-item d-flex justify-content-between align-items-center">
+           
+          <div class="d-flex align-items-center" >
+            <img src="../../../../assets/images/employee.gif" class="rounded-circle" alt="{{u.username}}" width="50" height="50" style="margin-right: 10px;">
+            <div class="ms-2 me-auto">
+          
+              <div class="fw-bold">{{'@'+u.username}} </div>
+              {{u.fullName}}
+            </div>
+          </div>
+          <button mat-button [routerLink]="'/home/chat/' + u.id" style="color:#004d40;" *ngIf="user.id!=u.id">CHAT</button>
+        
+        </li>
+      </ng-container>
+      </ul>
+    </div>
+  </ng-container>

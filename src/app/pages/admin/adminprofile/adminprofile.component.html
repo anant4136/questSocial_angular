@@ -1,0 +1,125 @@
+
+
+  <div class="row" style="background: linear-gradient(135deg, #004d40 0%, #005676 100%) !important; min-height: 100vh;">
+    <div class="scrollable-container"></div>
+    <div class="col-md-8" style="padding: 20px; padding:20px 0 0 50px;">
+      <h1 style="color: white;">Admin Profile</h1>
+      <div class="card" style="min-height: 95vh;">
+        <div class="rounded-top text-white d-flex flex-row" style="background-color: white; height:200px;">
+          <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+            <img src="../../../../assets/images/employee.gif"
+              alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+              style="width: 150px; z-index: 1">
+          </div>
+          <div class="ms-3" style="margin-top: 130px;">
+            <h1 style="color: black;margin: 0; font-family: poppins;">{{'@'+user.fullName}}</h1>
+            <p style="color: black;">{{user.company.location}}</p>
+          </div>
+        </div>
+        <div class="p-4 text-black bg-body-tertiary">
+          <div class="d-flex justify-content-end text-center py-1 text-body">
+            <div>
+              <p class="mb-1 h5">{{user.company.no_of_employees+'+'}}</p>
+              <p class="small text-muted mb-0">Friends</p>
+            </div>
+            <div class="px-3">
+              <p class="mb-1 h5">8755315169</p>
+              <p class="small text-muted mb-0">Phone</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body p-4 text-black">
+          <div class="mb-5 text-body">
+            <p class="lead fw-normal mb-1">About</p>
+            <div class="p-4 bg-body-tertiary">
+              <p class="font-italic mb-1">Name : {{user.fullName}}</p>
+              <p class="font-italic mb-1">Email : {{user.email}}</p>
+              <p class="font-italic mb-1">Company : {{user.company.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body p-4 text-black">
+          <div class="mb-5 text-body">
+            <p class="lead fw-normal mb-1">My Posts</p>
+            <div class="box-custom row">
+              <div class="dropdown col-md-12" style="text-align: right;">
+                <button class="btn btn-secondary dropdown-toggle" style="height: 35px; width: 130px; font-size: 18px; padding: 0; margin-bottom: 20px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ selectedFilter }}
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" (click)="setFilter('All Posts')">All Posts</a></li>
+                  <li><a class="dropdown-item" (click)="setFilter('Answered')">Answered</a></li>
+                  <li><a class="dropdown-item" (click)="setFilter('Unanswered')">Unanswered</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6" *ngFor="let post of filteredPosts; let i = index">
+                <div class="card-custom" [routerLink]="'/admin/admin_post/'+ post.problemId" [ngClass]="{ 'card-answered': post.answered, 'card-unanswered': !post.answered }">
+                  <div class="card-image">
+                    <img [src]="post.imageUrl1" alt="Card image">
+                    <!-- <div class="tag">{{ post.answered ? 'Answered' : 'Unanswered' }}</div> -->
+                  </div>
+                  <div class="card-content">
+                    <div class="detail">
+                      <p style="font-size: 25px; font-weight: bold; margin-bottom: 0;">{{ post.title }}</p>
+                      <span style="font-size: 15px; color: grey;">{{ post.description }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+    <div class="col-md-4">
+      <div class="profile-card">
+        <div class="profile-header">
+          <img src="../../../../assets/images/employee.gif" alt="Avatar" class="avatar">
+          <div class="profile-info">
+            <h2>{{'@'+user.username}}</h2>
+            <p>UserName</p>
+          </div>
+        </div>
+        <div class="profile-details">
+          <div class="profile-header" style="padding-top: 0;">
+            <div class="profile-info">
+              <h2>{{user.company.no_of_employees}}</h2>
+              <p>Friends</p>
+            </div>
+            <div class="profile-info">
+              <h2>{{user.score}}</h2>
+              <p>Credits</p>
+            </div>
+          </div>
+  <ng-container >
+          <form (ngSubmit)="uploadImage()">
+            <input type="text" [(ngModel)]="title" name="title" placeholder="Add Title ..." class="form-control">
+            <textarea [(ngModel)]="description" name="thought" placeholder="Share your thoughts..." class="form-control"></textarea>
+            
+            <!-- File input 1 -->
+            <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+              <div class="file-input-container" style="margin-right: 20px;">
+                <button class="btn btn-primary" type="button" style="font-size: 15px;">
+                  <i class="fas fa-image"></i> Add Image
+                  <input type="file" name="imageUrl1" (change)="onFileSelected1($event)" multiple>
+                </button>
+              </div>
+              
+              <!-- File input 2 -->
+              <!-- <div class="file-input-container">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-video"></i> Image 2
+                  <input type="file" name="imageUrl2" (change)="onFileSelected2($event)">
+                </button>
+              </div> -->
+            </div>
+            
+            <button class="submit-btn btn btn-success" type="submit">Post</button>
+          </form>
+        </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>

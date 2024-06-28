@@ -1,0 +1,27 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.chart-container {
+  width: 45%;
+  height: 40vh;
+  margin: 20px 0;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    width: 100%;
+  }
+}
+.chart-heading {
+  font-size: 1.5rem; 
+  font-weight: bold;
+  text-align: center; 
+  margin-top: 10px; 
+}

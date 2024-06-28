@@ -1,0 +1,29 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <div class="user-details">
+      <div class="user-image" ></div>
+      <div class="user-info">
+        <h2>{{ receiver.username }}</h2>
+        <span>{{ receiver.fullName }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="scrollable-container">
+  <div class="chat-window">
+    <div *ngFor="let message of old_messages" class="message" [ngClass]="{'sent': message.sender.id === user.id, 'received': message.receiver.id === user.id}">
+      <p style="color: white !important;">{{ message.content }}</p>
+      <span class="timestamp" >{{ message.time | date:'short' }}</span>
+    </div>
+    <div *ngFor="let message of messages" class="message" [ngClass]="{'sent': message.sender.id === user.id, 'received': message.receiver.id === user.id}">
+      <div *ngIf="(message.sender.id === user.id && message.receiver.id === receiver.id) || (message.receiver.id === user.id && message.sender.id === receiver.id)">
+        <p style="color: white !important;">{{ message.content }}</p>
+        <span class="timestamp" >{{ message.time | date:'short' }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="chat-input">
+    <input [(ngModel)]="newMessage" type="text" placeholder="Type a message..." />
+    <button (click)="sendMessage()" style="color: white;">Send</button>
+  </div>
+</div>
+</div>

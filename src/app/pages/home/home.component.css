@@ -1,0 +1,21 @@
+*{
+  margin:0px;
+  padding: 0px;
+}
+.background-container {
+  background: linear-gradient(135deg, #004d40 0%, #005676 100%)
+  }
+  .container-fluid {
+    padding:0px;
+  }
+  .box{
+    min-height: 90vh;
+    padding-top: 10vh !important;
+  }
+  .navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Adjust this value as needed */
+  }

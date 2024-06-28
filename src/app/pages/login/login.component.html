@@ -1,0 +1,97 @@
+<div class="wrapper">
+  <nav class="nav">
+    <div class="nav-logo">
+      <a href="" style="text-decoration: none;">
+        <p>QuestSocial</p>
+      </a>
+    </div>
+    <div class="nav-menu" id="navMenu" style="padding-left: 10vw;">
+      <ul>
+        <li><a href="" class="link">Home</a></li>
+    
+        <li><a href="about" class="link">About</a></li>
+      </ul>
+    </div>
+    <div class="nav-button">
+      <button class="btn" [ngClass]="{'white-btn': isLogin}" (click)="toggleForm(true)" style="color: white; margin: 0 10px;">Sign In</button>
+      <button class="btn" [ngClass]="{'white-btn': !isLogin}" (click)="toggleForm(false)" style="color: white;">Sign Up</button>
+    </div>
+    <div class="nav-menu-btn">
+      <i class="bx bx-menu" (click)="toggleMenu()"></i>
+    </div>
+  </nav>
+
+  <div class="form-box">
+    <div class="login-container" [ngClass]="{'hidden': !isLogin}">
+      <div class="top">
+        <span>Don't have an account? <a  (click)="toggleForm(false)">Sign Up</a></span>
+        <header>Login</header>
+      </div>
+      <div class="input-box">
+        <input type="text" class="input-field" placeholder="Username or Email" required [(ngModel)]="loginUser.username" name="username">
+        <i class="bx bx-user"></i>
+      </div>
+      <div class="input-box">
+        <input type="password" class="input-field" placeholder="Password" required [(ngModel)]="loginUser.password" name="password">
+        <i class="bx bx-lock-alt"></i>
+      </div>
+      <div class="input-box">
+        <input type="submit" class="submit" value="Sign In" (click)="userLogin()">
+      </div>
+      <div class="two-col">
+        <div class="one">
+          <input type="checkbox" id="login-check">
+          <label for="login-check"> Remember Me</label>
+        </div>
+        <div class="two">
+          <label><a >Forgot password?</a></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="register-container" [ngClass]="{'hidden': isLogin}">
+      <div class="top">
+        <span>Have an account? <a (click)="toggleForm(true)">Login</a></span>
+        <header>Sign Up</header>
+      </div>
+     
+        <div class="input-box">
+          <input type="text" class="input-field" placeholder="Full Name" required [(ngModel)]="registerUser.fullName" name="fullName" >
+          <i class="bx bx-user"></i>
+        </div>
+        <div class="input-box">
+          <select class="input-field " style="padding-right: 10px;" id="inputGroupSelect04" aria-label="Example select with button addon" [(ngModel)]="registerUser.company.companyId" name="companyId">
+            <option [ngValue]="null" disabled selected>Choose Company</option>
+            <option style="color: black;" *ngFor="let company of companies" [value]="company.companyId">{{company.name}}</option>
+          </select>
+          <i class="bx bx-user"></i>
+        </div>
+        
+        <div class="input-box">
+          <input type="text" class="input-field" placeholder="User Name" required [(ngModel)]="registerUser.username" name="username" >
+          <i class="bx bx-user"></i>
+        </div>
+     
+      <div class="input-box">
+        <input type="text" class="input-field" placeholder="Email address" required [(ngModel)]="registerUser.email" name="email">
+        <i class="bx bx-envelope"></i>
+      </div>
+      <div class="input-box">
+        <input type="password" class="input-field" placeholder="Password" required [(ngModel)]="registerUser.password" name="password">
+        <i class="bx bx-lock-alt"></i>
+      </div>
+      <div class="input-box">
+        <input type="submit" class="submit" (click)="userRegister()" value="Register">
+      </div>
+      <div class="two-col">
+        <div class="one">
+          <input type="checkbox" id="register-check" required [(ngModel)]="registerUser.admin" name="admin" >
+          <label for="register-check"> Is Admin</label>
+        </div>
+        <div class="two">
+          <label><a >Terms & conditions</a></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container box">
+    <div class="card ">
+      <div class="card-body  " style=" border-radius: 10px;">
+        <h2 class="card-title">Post Problem</h2>
+        <form (ngSubmit)="createProblem()">
+          <!-- {{newProblem|json}} -->
+          <div class="form-group" >
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter title" [(ngModel)]="newProblem.title" name="title">
+         
+          <label for="imageUrl1">Image1:</label>
+          <input type="text" class="form-control" id="Image1" placeholder="Enter Image1 Url" [(ngModel)]="newProblem.imageUrl1" name="ImageUrl1">
+        
+        <label for="imageUrl2">Image2:</label>
+          <input type="text" class="form-control" id="Image2" placeholder="Enter Image2 Url" [(ngModel)]="newProblem.imageUrl2" name="ImageUrl2">
+        </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Enter description" [(ngModel)]="newProblem.description" name="description"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary " >Submit</button>
+          </div>
+        
+        </form>
+      </div>
+    </div>
+  </div>
+  

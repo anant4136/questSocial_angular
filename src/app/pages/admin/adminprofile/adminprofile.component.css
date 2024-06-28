@@ -1,0 +1,429 @@
+.container {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Box shadow */
+    transition: 0.3s;
+    border-radius: 15px;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Larger box shadow on hover */
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .btn {
+    font-size: 20px;
+    font-weight: 340;
+    padding: 10px;
+  }
+  
+  .box {
+    position: fixed;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  
+  
+  .gradient-custom {
+      /* fallback for old browsers */
+      background: #4d4c4a;
+      
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right bottom, rgb(39, 37, 32), rgb(108, 104, 102));
+      
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right bottom, rgb(39, 37, 32), rgb(108, 104, 102));
+  }
+  .card-custom {
+    width: 320px;
+    height: 350px;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.5s ease-in-out;
+    cursor: pointer;
+    border-width: 2px;
+    border-style: solid;
+  }
+  
+  .card-answered {
+    border-color: rgb(11, 143, 11) !important;
+  }
+  
+  .card-unanswered {
+    border-color: rgb(248, 51, 51) !important;
+  }
+  .card-fade-out {
+    border-color: transparent;
+   
+  }
+  .card-custom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+  }
+  
+  
+  .card-image {
+    position: relative;
+    width: 320px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+  }
+  
+  .card-image img {
+    width: 99%;
+    height: 230px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .bottomimg {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+  }
+  .detail {
+    height: 70px; /* Adjust based on your design */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    margin: 0;
+    padding: 0;
+  }
+  .tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .mission {
+    margin: 0;
+    font-size: 14px;
+    color: white;
+  }
+  
+  .title {
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .card-content {
+    padding: 0 15px;
+  }
+  
+  .dt {
+    display: flex;
+  }
+  
+  .show-more {
+    position: absolute;
+    right: 190px;
+    padding: 4px 40px;
+    color: black;
+    margin-top: 10px;
+    font-weight: bold;
+    border: 1px solid gray;
+  }
+  
+  .show-more p {
+    height: 14px;
+  }
+  
+  /* scrolling-text.component.css */
+  .scrolling-container {
+    width: 98vw;
+    overflow: hidden;
+    margin: 47px auto;
+    background: #f8f1f1;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+    position: relative;
+  }
+  
+  .scrolling-wrapper {
+    display: flex;
+    width: 200%; /* Double the width for continuous scrolling */
+    animation: scrollText 20s linear infinite;
+  }
+  
+  .scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Verdana;
+    color: black;
+  }
+  
+  @keyframes scrollText {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .highlight {
+    color: orangered;
+  }
+  
+  .hover-content {
+    margin-top: 10px;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .card-custom:hover .hover-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card-custom:hover .card-content {
+    justify-content: center;
+  }
+  
+  .card-custom:hover .dt {
+    display: none;
+  }
+  
+  .pledge-button {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pledge-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .box-custom {
+    background-color: whitesmoke;
+    opacity: 1;
+    padding: 20px 5px;
+  }
+  .scrollable-container {
+    max-height: calc(170vh); /* Adjust the height as needed */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+  .scrollable-container::-webkit-scrollbar {
+    display: none;
+  }
+  .profile-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 90%;
+    font-family: Arial, sans-serif;
+    margin:73px auto;
+    
+    }
+    
+    .profile-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    /* border-bottom: 1px solid #eee; */
+    }
+    
+    .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    }
+    
+    .profile-info {
+    margin-right: 10px;
+    margin-left: 10px;
+    }
+    
+    .profile-info h2 {
+    margin: 0;
+    font-size: 18px;
+    }
+    
+    .profile-info p {
+    margin: 0;
+    color: #888;
+    }
+    
+    .profile-details {
+    padding: 15px;
+    }
+    
+    .profile-details h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    }
+    
+    form {
+    display: flex;
+    flex-direction: column;
+    }
+    
+    textarea {
+    resize: none;
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    }
+    input{
+    
+        resize: none;
+        height: 30px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      
+    }
+    
+    .actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    }
+    
+    .btn-profile {
+    background: #004d40;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    }
+    
+    .btn-profile .fas {
+    margin-right: 5px;
+    }
+    
+    .submit-btn {
+    background: #004d40;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    }
+    
+    .activity {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    }
+    
+    .activity h4 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #333;
+    }
+    
+    .activity p {
+    margin: 0;
+    color: #888;
+    font-size: 12px;
+    }
+    .file-input-container {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      margin-top: 10px; /* Adjust margin as needed */
+  }
+    .file-input-container input[type=file] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 20px; /* Adjust font size as needed */
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0); /* For IE8 and earlier */
+  }
+  
+  /* Style for the button */
+  .file-input-container .btn {
+      display: inline-block;
+      background-color: #004d40; /* Button background color */
+      color: #fff; /* Button text color */
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  
+  /* Optional hover effect for the button */
+  .file-input-container .btn:hover {
+      background-color: #176a5c; /* Hover background color */
+  }
+  .scrollable-container {
+    max-height: calc(170vh); /* Adjust the height as needed */
+    overflow-y: auto; /* Allow vertical scrolling */
+    margin: 0;
+    padding: 0;
+  }
+  .scrollable-container::-webkit-scrollbar {
+    display: none;
+  }

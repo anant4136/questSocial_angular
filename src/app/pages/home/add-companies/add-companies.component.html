@@ -1,0 +1,95 @@
+<div class="row" style="background: linear-gradient(135deg, #004d40 0%, #005676 100%) !important; min-height: 100vh;">
+  <div class="col-md-8" style=" padding:20px 0 0 50px;">
+  
+     
+        <h1 style="color: white;">All Companies</h1>
+      <ng-container *ngFor="let u of companies; let i = index">
+      
+        <mat-card class="example-card box">
+          <mat-card-header class="user-header box-padding">
+            <div class="card-content">
+              <div class="left-section">
+                 
+                  <div>
+                    <div style="display: flex;">
+                      <img [src]="u.companyImageUrl" [alt]="u.name" class="avatar">
+                      <mat-card-title>{{ u.name }}</mat-card-title>
+                    </div>
+                    
+                      <!-- <mat-card-subtitle style="color: #dae0e5">{{ u.username }}</mat-card-subtitle> -->
+                      
+                      
+                  </div>
+              </div>
+              <div class="right-section">
+                <mat-card-subtitle style="font-weight:bold; font-size: 18px; color: #1a6b31">Location : {{ u.location }}</mat-card-subtitle>
+                <mat-card-subtitle >Number of employees : {{ u.no_of_employees }}</mat-card-subtitle>
+                
+              </div>
+          </div>
+         </mat-card-header>
+         <mat-card-content>
+          <p>{{ u.description }}</p>
+          
+         </mat-card-content>
+        </mat-card>
+       
+      
+      
+    
+      </ng-container>
+    
+   
+  </div>
+  <div class="col-md-4" >
+   
+ <div class="profile-card" >
+  <div class="profile-header">
+    <img src="../../../../assets/images/employee.gif" alt="Avatar" class="avatar">
+    <div class="profile-info">
+      <h2>{{'@'+user.username}}</h2>
+      <p>UserName</p>
+    </div>
+  </div>
+  <div class="profile-details" >
+      <div class="profile-header"style="padding-top: 0;">
+          <div class="profile-info">
+              <h2>{{user.company.no_of_employees}}</h2>
+              <p>Friends</p>
+            </div>
+            <div class="profile-info">
+              <h2>{{user.score}}</h2>
+              <p>Credits</p>
+            </div>
+            <!-- <div class="profile-info">
+              <h2>{{user.company.name}}</h2>
+              <p>Company</p>
+            </div> -->
+      </div>
+     
+   
+    <form (ngSubmit)="uploadImage()">
+      <input type="text" [(ngModel)]="company.name" name ="title" placeholder="Add Company Name ...">
+      <textarea [(ngModel)]="company.description" name="thought" placeholder="Share Description..."></textarea>
+      <input type="text" [(ngModel)]="company.location" name ="imageUrl1" placeholder="Share Location ...">
+      <input type="text" [(ngModel)]="company.no_of_employees" name ="imageUrl2" placeholder="Share number of employees ...">
+      <div style="display: flex; justify-content: center; margin-bottom: 10px;" >
+        <div class="file-input-container" style="height: 40px;">
+            <input type="file" name="imageUrl1" (change)="onFileSelected1($event)">
+            <button class="btn" type="button" style="font-size: 15px;"><i class="fas fa-image"></i>Add Image</button>
+        </div>
+     </div>
+      <button class="submit-btn" type="submit" >Create Company</button>
+    </form>
+  </div>
+ 
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+    

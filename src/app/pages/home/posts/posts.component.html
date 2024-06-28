@@ -1,0 +1,85 @@
+<div class="scrollable-container">
+  <div class="row scrolling-container">
+    <div class="scrolling-wrapper">
+      <div class="scrolling-text" *ngFor="let card of posts">
+        <div class="card" *ngIf="card.creator.admin" [routerLink]="'/home/show_post/'+ card.problemId">
+          <div class="image-wrapper">
+            <img [src]="card.imageUrl1" alt="Card image">
+            <div class="overlay">
+              <h1 style="margin: 0;">{{ card.title }}</h1>
+              <p>{{ card.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scrolling-text" *ngFor="let card of posts">
+        <div class="card" *ngIf="card.creator.admin && !card.answered" [routerLink]="'/home/show_post/'+ card.problemId">
+          <div class="image-wrapper">
+            <img [src]="card.imageUrl1" alt="Card image">
+            <div class="overlay">
+              <h1 style="margin: 0;">{{ card.title }}</h1>
+              <p>{{ card.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngFor="let post of posts; let i = index">
+    <mat-card class="example-card box" *ngIf="post.answered === false && post.creator.admin === false && post.creator.company.companyId===user.company.companyId">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ post.creator.username }}</mat-card-title>
+        <mat-card-subtitle>{{ post.creator.fullName }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content style="margin-bottom: 10px;">
+        <h2 style="margin: 0;">{{ post.title }}</h2>
+        <p>{{ post.description }}</p>
+      </mat-card-content>
+
+      <div id="carouselExampleIndicators_{{i}}" class="carousel slide boximgcontainer" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators" style="z-index: 5 !important;">
+          <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators_' + i" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators_' + i" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img [src]="post.imageUrl1" class="d-block w-100 carousel-image" alt="{{ post.title }}">
+          </div>
+          <div class="carousel-item">
+            <img [src]="post.imageUrl2" class="d-block w-100 carousel-image" alt="{{ post.title }}">
+          </div>
+        </div>
+      </div>
+
+      <mat-card-actions class="flexing-icons">
+        <div style="width: 20%; display: flex;">
+          <button class="btn btn-outline-secondary like-button" (click)="likePost(post,i)">
+            <mat-icon style="color: #004d40;">thumb_up</mat-icon>
+            <span>{{ post.likes }}</span>
+          </button>
+          <button class="btn btn-outline-secondary dislike-button" (click)="dislikePost(post,i)">
+            <mat-icon>thumb_down</mat-icon>
+            <span>{{ post.dislikes }}</span>
+          </button>
+        </div>
+        <div>
+          <button class="btn btn-outline-secondary" style="margin-right: 10px" type="button" id="button-addon2" [routerLink]="'/home/ans/' + post.problemId">Comments</button>
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="toggleCommentBox(i)">Share</button>
+        </div>
+      </mat-card-actions>
+
+      <mat-divider></mat-divider>
+
+      <mat-card-content>
+        <div class="input-box-1" style="margin-top: 10px;" [ngClass]="{ 'input-box-1': true, 'show': showCommentBoxes[i] }">
+          <input type="text" class="form-control" placeholder="Title" [(ngModel)]="title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" style="margin-bottom: 10px;">
+          <textarea class="form-control" placeholder="Description" [(ngModel)]="description" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" style="margin-bottom: 10px;"></textarea>
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="createSolution(post.problemId, i)">Share</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>

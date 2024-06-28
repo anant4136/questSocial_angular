@@ -1,0 +1,22 @@
+<div class="container box">
+    <div class="card ">
+      <div class="card-body " style=" border-radius: 10px;">
+        <h2 class="card-title">Answer Form</h2>
+        <form (ngSubmit)="createSolution()">
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter title" [(ngModel)]="newSolution.title" name="title">
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Enter description" [(ngModel)]="newSolution.description" name="description"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary " >Submit</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  

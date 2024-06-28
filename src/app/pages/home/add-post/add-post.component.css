@@ -1,0 +1,46 @@
+.container {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Box shadow */
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Larger box shadow on hover */
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #212529;
+
+  }
+  
+  .btn-primary:hover {
+    background-color: #212529cc;
+  }
+  .btn {
+    font-size: 20px;
+    font-weight: 340;
+    padding: 10px;
+   
+  } 
+  .box {
+    position: fixed;
+    top: 20%;
+   
+  }
+  .text-center {
+    text-align: center;
+  }
+  

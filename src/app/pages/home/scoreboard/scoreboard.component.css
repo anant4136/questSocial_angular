@@ -1,0 +1,37 @@
+.box{
+   text-align: center;
+   border-radius: 10px;
+   background: linear-gradient(
+        to bottom, 
+        #004d40 0%,  
+        hsla(170, 49%, 48%, 0.527) 20%
+    );
+   color: #FFFF;
+    margin: 30px auto;
+   
+    
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    
+  }
+
+
+  @media (max-width: 768px) {
+    .box {
+        display: none; 
+    }
+}
+.bg-gold {
+    background-color: rgb(255, 255, 255) !important;
+  }
+   
+  .bg-silver {
+    background-color: rgb(255, 255, 255) !important;
+  }
+   
+  .bg-bronze {
+    background-color: #ffffff !important;
+  }

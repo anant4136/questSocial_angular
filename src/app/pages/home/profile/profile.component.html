@@ -1,0 +1,85 @@
+<div class="scrollable-container">
+  <div class="card" style="min-height: 95vh; margin-top: 30px;">
+    <div class="rounded-top text-white d-flex flex-row" style="background-color: #ffffff; height:200px;">
+      <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+        <img src='../../../../assets/images/employee.gif'
+          alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+          style="width: 150px; z-index: 1">
+        <!-- <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-dark text-body" data-mdb-ripple-color="dark" style="z-index: 1;">
+          Edit profile
+        </button> -->
+      </div>
+      <div class="ms-3" style="margin-top: 130px;">
+        <h1 style="color: black;margin: 0; font-family: poppins;">{{'@'+user.fullName}}</h1>
+        <p style="color: black;">{{user.company.location}}</p>
+      </div>
+    </div>
+    <div class="p-4 text-black bg-body-tertiary">
+      <div class="d-flex justify-content-end text-center py-1 text-body">
+        <div class="px-3">
+          <p class="mb-1 h5">{{user.score}}</p>
+          <p class="small text-muted mb-0">Score</p>
+        </div>
+        <div class="px-3">
+          <p class="mb-1 h5">{{user.company.no_of_employees+'+'}}</p>
+          <p class="small text-muted mb-0">Friends</p>
+        </div>
+        <div class="px-3">
+          <p class="mb-1 h5">9468315169</p>
+          <p class="small text-muted mb-0">Phone</p>
+        </div>
+       
+      </div>
+    </div>
+    <div class="card-body p-4 text-black">
+      <div class="mb-5 text-body">
+        <p class="lead fw-normal mb-1">About</p>
+        <div class="p-4 bg-body-tertiary">
+          <p class="font-italic mb-1">Name : {{user.fullName}}</p>
+          <p class="font-italic mb-1">Email : {{user.email}}</p>
+          <p class="font-italic mb-1">Company : {{user.company.description}}</p>
+        </div>
+      </div>
+      
+      
+    </div>
+    <div class="card-body p-4 text-black">
+      <div class="mb-5 text-body">
+        <p class="lead fw-normal mb-1">My Posts</p>
+        <div class="box-custom row">
+          <div class="dropdown col-md-12" style="text-align: right;">
+            <button class="btn btn-secondary dropdown-toggle" style="height: 35px; width: 130px; font-size: 18px; padding: 0; margin-bottom: 20px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ selectedFilter }}
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"  (click)="setFilter('All Posts')">All Posts</a></li>
+              <li><a class="dropdown-item"  (click)="setFilter('Answered')">Answered</a></li>
+              <li><a class="dropdown-item"  (click)="setFilter('Unanswered')">Unanswered</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6" *ngFor="let post of filteredPosts; let i = index">
+            <div class="card-custom" [routerLink]="'/home/my_post/'+ post.problemId" [ngClass]="{ 'card-answered': post.answered, 'card-unanswered': !post.answered }">
+              <div class="card-image">
+                <img [src]="post.imageUrl1" alt="Card image">
+                <!-- <div class="tag">{{ post.answered ? 'Answered' : 'Unanswered' }}</div> -->
+              </div>
+              <div class="card-content">
+                <div class="detail">
+                  <p style="font-size: 25px; font-weight: bold; margin-bottom: 0;">{{ post.title }}</p>
+                  <span style="font-size: 15px; color: grey;">{{ post.description }}</span>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+     
+      
+    </div>
+
+  </div>
+          
+      
